@@ -1,33 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {
+    AppBar,
+    Card,
+    CardActionArea,
+    CardContent,
+    Grid,
+    Paper,
+    SpeedDial,
+    SpeedDialIcon,
+    Stack,
+    Toolbar,
+    Typography
+} from '@mui/material'
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
+import ChecklistIcon from '@mui/icons-material/Checklist';
+const AddNewCard = () => (
+  <Card>
+    <CardActionArea>
+      <ControlPointIcon sx={{"fontSize": 100}}/>
+    </CardActionArea>
+  </Card>
+);
+
+const ListCard = () => (
+  <Card>
+    <CardContent>
+      <Typography variant="h5" component="div">
+        Test
+      </Typography>
+      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        Number of items: 20
+      </Typography>
+    </CardContent>
+  </Card>
+)
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Test commit change for Vercel deploy</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <AppBar position='relative'>
+        <Toolbar>
+          <Stack direction="row" alignItems="center" gap={1}>
+            <ChecklistIcon />
+            <Typography variant="h6">My List</Typography>
+          </Stack>
+        </Toolbar>
+      </AppBar>
     </>
   )
 }
